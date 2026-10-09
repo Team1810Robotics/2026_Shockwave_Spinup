@@ -1,10 +1,6 @@
 package frc.robot.subsystems;
-import frc.robot.subsystems.Constants;
 import com.revrobotics.spark.SparkMax;
 import com.revrobotics.spark.SparkLowLevel.MotorType;
-import com.ctre.phoenix6.controls.DutyCycleOut;
-import com.ctre.phoenix6.signals.InvertedValue;
-import com.ctre.phoenix6.signals.NeutralModeValue;
 import com.revrobotics.spark.config.SparkMaxConfig;
 import com.revrobotics.ResetMode;
 import com.revrobotics.PersistMode;
@@ -49,7 +45,7 @@ public class IntakeSubsystem extends SubsystemBase {
        Intake_Roller.set(Constants.IntakeWheel_Velocity_Backward); 
     }
     public void intakeStop() {
-       Intake_Roller.set(Constants.Velocity_Stop);
+       Intake_Roller.set(Constants.IntakeWheel_Velocity_Stop);
     }
     public double getMotorRotations() {
         return Intake_Encoder.get();
