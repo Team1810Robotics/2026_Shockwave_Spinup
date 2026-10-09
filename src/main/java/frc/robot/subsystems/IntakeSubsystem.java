@@ -10,6 +10,7 @@ import com.revrobotics.ResetMode;
 import com.revrobotics.PersistMode;
 import edu.wpi.first.wpilibj.DutyCycleEncoder;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class IntakeSubsystem extends SubsystemBase {
 
@@ -41,11 +42,11 @@ public class IntakeSubsystem extends SubsystemBase {
 }
     
     public void intakeForward() {
-       Intake_Roller.set(Constants.Velocity_Forward);
+       Intake_Roller.set(Constants.IntakeWheel_Velocity_Forward);
     }
     
     public void intakeBackward() {
-       Intake_Roller.set(Constants.Velocity_Backward); 
+       Intake_Roller.set(Constants.IntakeWheel_Velocity_Backward); 
     }
     public void intakeStop() {
        Intake_Roller.set(Constants.Velocity_Stop);
@@ -64,11 +65,20 @@ public class IntakeSubsystem extends SubsystemBase {
     }
     
       public void intakeUp() {
+         Intake_Left.set(0.1);
+        Intake_Right.set(0.1);
           Intake_Left.set(Constants.Intake_Up);
           Intake_Right.set(Constants.Intake_Up);
      }
       public void intakeDown() {
+        Intake_Left.set(0.1);
+        Intake_Right.set(0.1);
           Intake_Left.set(Constants.Intake_Down);
           Intake_Right.set(Constants.Intake_Down);
       }
- }
+ 
+@Override
+public void periodic() {
+    SmartDashboard.putNumber("Intake Arm Position", Intake_Encoder.get());
+}
+}
