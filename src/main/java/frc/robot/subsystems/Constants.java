@@ -12,4 +12,8 @@ public class Constants {
 
     public static final double Intake_Up = 0.64;
     public static final double Intake_Down = 0.21;
+
+    public static final double Intake_kP = 1.6;
+    public static final double Intake_kI = 0.0;
+    public static final double Intake_kD = 0.0;
 } 
